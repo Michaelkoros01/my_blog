@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Blog | Ideas, Stories & Inspiration</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            My<span>Blog.</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#featured">Articles</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+
+        <a href="#featured" class="nav-button">
+            Explore Blog
+        </a>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="tagline">WELCOME TO MY BLOG</p>
+
+            <h1>
+                Discover Ideas.<br>
+                Explore Stories.<br>
+                <span>Get Inspired.</span>
+            </h1>
+
+            <p class="hero-description">
+                A place for sharing ideas, knowledge,
+                experiences and stories from different
+                walks of life.
+            </p>
+
+            <a href="#featured" class="main-button">
+                Explore Articles →
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+
+            <div class="image-card">
+
+                <span>✍️</span>
+
+                <h3>Ideas Worth Sharing</h3>
+
+                <p>Knowledge begins with curiosity.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section class="categories" id="categories">
+
+        <h2>Explore Topics</h2>
+
+        <p class="section-description">
+            Discover something interesting in every category.
+        </p>
+
+        <div class="category-list">
+
+            <div class="category-card">💻 Technology</div>
+
+            <div class="category-card">🌍 Lifestyle</div>
+
+            <div class="category-card">📚 Education</div>
+
+            <div class="category-card">📰 News</div>
+
+            <div class="category-card">💡 Business</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DYNAMIC ARTICLES -->
+
+    <section class="featured" id="featured">
+
+        <div class="section-heading">
+
+            <div>
+
+                <p class="tagline">READ AND DISCOVER</p>
+
+                <h2>Featured Articles</h2>
+
+            </div>
+
+            <a href="#featured">View All →</a>
+
+        </div>
+
+
+        <div class="article-grid">
+
+            {% for post in posts %}
+
+            <article class="article-card">
+
+                <div class="article-image">
+
+                    <img src="{{ post.image }}"
+                         alt="{{ post.title }}">
+
+                </div>
+
+                <div class="article-content">
+
+                    <span class="article-category">
+                        {{ post.category }}
+                    </span>
+
+                    <h3>{{ post.title }}</h3>
+
+                    <p>{{ post.excerpt }}</p>
+
+                    <a href="{{ url_for('article', slug=post.slug) }}">
+                        Read Article →
+                    </a>
+
+                </div>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <h2>Welcome to My Blog</h2>
+
+        <p>
+            My Blog is a creative space dedicated to sharing
+            knowledge, experiences, stories and fresh perspectives.
+            There is always something new to discover.
+        </p>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter">
+
+        <h2>Stay Inspired!</h2>
+
+        <p>
+            Subscribe to receive interesting articles
+            and updates from My Blog.
+        </p>
+
+        <form>
+
+            <input type="email"
+                   placeholder="Enter your email address">
+
+            <button type="button">
+                Subscribe
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>My<span>Blog.</span></h2>
+
+        <p>Ideas, Stories, Knowledge and Inspiration.</p>
+
+        <p>© 2026 My Blog. All Rights Reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>

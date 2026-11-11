@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ post.title }} | My Blog</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            My<span>Blog.</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#categories">Categories</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+
+        <a href="/" class="nav-button">Back Home</a>
+
+    </nav>
+
+
+    <!-- ARTICLE HEADER -->
+
+    <header class="article-header">
+
+        <span class="article-category">
+            {{ post.category }}
+        </span>
+
+        <h1>{{ post.title }}</h1>
+
+        <p>
+            By {{ post.author }} |
+            {{ post.date }}
+        </p>
+
+    </header>
+
+
+    <!-- ARTICLE IMAGE -->
+
+    <div class="article-cover">
+
+        <img src="{{ post.image }}"
+             alt="{{ post.title }}">
+
+    </div>
+
+
+    <!-- ARTICLE CONTENT -->
+
+    <main class="article-body">
+
+        <p class="article-intro">
+            {{ post.excerpt }}
+        </p>
+
+        <div class="article-text">
+            {{ post.content }}
+        </div>
+
+        <a href="/" class="main-button">
+            ← Back to Homepage
+        </a>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>My<span>Blog.</span></h2>
+
+        <p>Ideas, Stories, Knowledge and Inspiration.</p>
+
+        <p>© 2026 My Blog. All Rights Reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>
